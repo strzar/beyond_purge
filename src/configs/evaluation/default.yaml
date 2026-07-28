@@ -1,0 +1,5 @@
+enabled: true
+batch_size: 8             # per-eval batch size; reduce if OOM
+rwku_dir: "../data/RWKU"
+max_samples: null          # null = use full eval sets
+eval_every_n_steps: 100    # run RWKU eval every N steps; also always runs on the final step

@@ -1,0 +1,3 @@
+# FP16 (Float 16) - reduced precision via amp
+enabled: true
+type: fp16

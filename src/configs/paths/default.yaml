@@ -1,0 +1,8 @@
+purge_dir: "../data/PURGE"
+output_base: "../models"
+forget_words_file: "${paths.purge_dir}/${entity.target}/${entity.forget_words_filename}"
+forget_dataset_file: "${paths.purge_dir}/${entity.target}/${entity.forget_dataset_filename}"
+# run_tag is set at runtime to method_model_commit_id (e.g. hazard_Phi-3-mini-4k-instruct_20f19d72)
+run_tag: "default"
+output_dir: "${paths.output_base}/${paths.run_tag}/${entity.target}"
+rwku_eval_dir: "${paths.output_dir}/rwku_eval"

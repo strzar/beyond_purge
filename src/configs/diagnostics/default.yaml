@@ -1,0 +1,27 @@
+# Unified diagnostics configuration
+enable_live: true
+# Post-training diagnostics bundle and checkpoint report generation.
+enable_post_training_bundle: false
+enable_checkpoint_eval: false
+
+# Probe and evaluation sizes
+probe_size: 8
+eval_sample_size: 16
+max_new_tokens: 64
+do_sample: false
+temperature: 0.0
+
+# Live logging
+live_eval_interval: 10
+
+# Sweep / comparison settings
+seed_sweep: [0, 1, 2]
+approaches:
+  - pagerank_max
+  - pagerank_softmax
+  - pagerank_rank
+  - binary
+  - exponential_decay
+
+# Artifact output
+output_dir: "${paths.output_dir}/diagnostics"

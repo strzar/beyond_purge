@@ -1,0 +1,28 @@
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv*/
+env/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS-generated
+.DS_Store
+Thumbs.db
+
+# Folders to ignore
+wandb/
+outputs/
+models/
+logs/
+assets/
+.cache/
+
+# Local configuration files
+src/configs/paths/local.yaml

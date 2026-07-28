@@ -1,0 +1,35 @@
+# Main Hydra configuration file
+# Override any parameter from CLI: python purge.py entity=confucius training.max_steps=1500
+#
+# Active configs (all in src/configs/):
+#   training:   exponential_decay  →  max_steps=1000, save_steps=50, save_total_limit=20
+#   evaluation: default            →  eval_every_n_steps=100, max_samples=null
+
+defaults:
+  - entity: 1_Stephen_King
+  - model: phi_3_mini_4k_instruct_3.8b
+  - training: exponential_decay
+  - reward: exponential_decay
+  - diagnostics: default
+  - evaluation: default
+  - quantization: none
+  - paths: default
+  - _self_
+
+# Global run seed
+seed: 42
+
+# Forget-set filter — controls which subset of fts.json is used for training.
+# Override per experiment:  python purge.py forget_set_filter=entity_only
+#   full         → all terms (default)
+#   entity_only  → first term only (entity name)   — Exp 1 / H1
+#   no_entity    → all terms except the first       — Exp 3 / H3
+forget_set_filter: "full"
+
+# Hydra settings
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${hydra.job.num}

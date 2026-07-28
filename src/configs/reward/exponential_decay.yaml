@@ -1,0 +1,4 @@
+type: "exponential_decay"
+
+tau: 1.00
+base: 2.71828

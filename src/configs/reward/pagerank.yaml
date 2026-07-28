@@ -1,0 +1,11 @@
+# PageRank-weighted reward function configuration
+# Penalizes based on semantic importance of matched terms
+type: "pagerank"
+
+# PageRank-specific parameters
+embedding_model_id: "BAAI/bge-m3"
+embedding_max_length: 512
+top_k_neighbors: 8
+min_similarity: 0.25
+penalty_scale: 1.0
+weight_transform: "max"
